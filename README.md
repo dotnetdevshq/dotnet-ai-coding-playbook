@@ -2,7 +2,7 @@
 
 Rules, guardrails, and a template that keep AI-written .NET code up to your standards.
 
-> **Status: early work in progress.** This repository was started in November 2026. Most of what is described below is planned, not yet available. See [Roadmap](#roadmap) for what exists today.
+> **Status: early work in progress.** This repository was started in November 2026. The root rules are in place, but the sample solution and build guardrails are still planned. See [Roadmap](#roadmap) for what exists today.
 
 ## Why this exists
 
@@ -31,8 +31,8 @@ This playbook treats that as an engineering problem, not a prompting problem. It
 
 | Step | Status |
 |---|---|
-| Repository setup and README | In progress |
-| Root `AGENTS.md`, license, `.editorconfig` | Planned |
+| Repository setup and README | Done |
+| Root `AGENTS.md`, `SECURITY.md`, license, `.editorconfig` | Done |
 | Build guardrails and CI workflow | Planned |
 | Clean Architecture sample solution | Planned |
 | Data access rules (EF Core) | Planned |
@@ -53,7 +53,7 @@ Branching follows trunk-based development:
 
 ## License
 
-This project will be released under the MIT License. The license file is added in the next step.
+Released under the [MIT License](LICENSE).
 
 ## About
 
