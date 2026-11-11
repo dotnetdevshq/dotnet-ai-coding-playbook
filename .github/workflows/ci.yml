@@ -26,9 +26,13 @@ jobs:
       - name: Check out the code
         uses: actions/checkout@v5
 
+      # The .NET 11 SDK from global.json builds both target frameworks.
+      # The .NET 10 SDK is installed as well because it brings the .NET 10 runtime,
+      # which the net10.0 tests need in order to run.
       - name: Set up .NET
         uses: actions/setup-dotnet@v5
         with:
+          dotnet-version: 10.0.x
           global-json-file: global.json
 
       - name: Restore

@@ -1,8 +1,8 @@
 <Project>
   <!-- Settings shared by every project in the repository. -->
   <PropertyGroup>
-    <!-- .NET 10 is the current LTS release. net11.0 will be added here once .NET 11 is generally available. -->
-    <TargetFramework>net10.0</TargetFramework>
+    <!-- Every project builds for .NET 10 (LTS) and .NET 11 (STS). CI builds and tests both. -->
+    <TargetFrameworks>net10.0;net11.0</TargetFrameworks>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
     <RootNamespace>Playbook.$(MSBuildProjectName)</RootNamespace>
