@@ -2,7 +2,7 @@
 
 Rules, guardrails, and a template that keep AI-written .NET code up to your standards.
 
-> **Status: early work in progress.** This repository was started in November 2026. The root rules are in place, but the sample solution and build guardrails are still planned. See [Roadmap](#roadmap) for what exists today.
+> **Status: early work in progress.** This repository was started in November 2026. The root rules, build guardrails, and a solution skeleton are in place. Data access with EF Core and the per-layer rules are still planned. See [Roadmap](#roadmap) for what exists today.
 
 ## Why this exists
 
@@ -33,8 +33,9 @@ This playbook treats that as an engineering problem, not a prompting problem. It
 |---|---|
 | Repository setup and README | Done |
 | Root `AGENTS.md`, `SECURITY.md`, license, `.editorconfig` | Done |
-| Build guardrails and CI workflow | Planned |
-| Clean Architecture sample solution | Planned |
+| Build guardrails and CI workflow | Done |
+| Clean Architecture sample solution (skeleton, .NET 10) | Done |
+| .NET 11 support | Planned, after its release |
 | Data access rules (EF Core) | Planned |
 | API, application and domain, and testing rules | Planned |
 | UI layer (optional variant) | Later |

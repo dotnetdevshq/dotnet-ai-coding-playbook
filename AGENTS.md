@@ -10,11 +10,13 @@ Everything here is meant to be copied into other people's projects. Prefer simpl
 
 ## Current status
 
-The repository is in its setup phase. The sample solution described below does not exist yet, so the build and test commands will not work until it is added. Do not create projects, add packages, or choose a target framework unless the task explicitly asks for it.
+The solution skeleton exists: four projects under `src/`, three test projects under `tests/`, and a CI workflow. It targets .NET 10. Support for .NET 11 will be added after its release.
+
+Storage is an in-memory placeholder. EF Core and the per-layer `AGENTS.md` files are not added yet. Do not add EF Core, new projects, or another target framework unless the task explicitly asks for it.
 
 ## Commands
 
-Once the solution exists, run these from the repository root:
+Run these from the repository root:
 
 ```bash
 dotnet restore
@@ -23,7 +25,9 @@ dotnet test --no-build
 dotnet format --verify-no-changes
 ```
 
-A change is not finished until all four succeed.
+A change is not finished until all four succeed. CI runs the same commands on every pull request.
+
+Warnings are treated as errors (see `Directory.Build.props`). Package versions are managed centrally in `Directory.Packages.props`, so project files reference packages without a version.
 
 ## Architecture
 

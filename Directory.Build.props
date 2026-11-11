@@ -1,0 +1,18 @@
+<Project>
+  <!-- Settings shared by every project in the repository. -->
+  <PropertyGroup>
+    <!-- .NET 10 is the current LTS release. net11.0 will be added here once .NET 11 is generally available. -->
+    <TargetFramework>net10.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <RootNamespace>Playbook.$(MSBuildProjectName)</RootNamespace>
+    <AssemblyName>Playbook.$(MSBuildProjectName)</AssemblyName>
+  </PropertyGroup>
+
+  <!-- Guardrails. These apply to people and AI agents alike. Do not relax them to get a green build. -->
+  <PropertyGroup>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+    <EnforceCodeStyleInBuild>true</EnforceCodeStyleInBuild>
+    <AnalysisLevel>latest</AnalysisLevel>
+  </PropertyGroup>
+</Project>
