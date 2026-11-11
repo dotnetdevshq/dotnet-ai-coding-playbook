@@ -10,7 +10,7 @@ Everything here is meant to be copied into other people's projects. Prefer simpl
 
 ## Current status
 
-The solution skeleton exists: four projects under `src/`, three test projects under `tests/`, and a CI workflow. It targets .NET 10. Support for .NET 11 will be added after its release.
+The solution skeleton exists: four projects under `src/`, three test projects under `tests/`, and a CI workflow. Every project targets both .NET 10 (LTS) and .NET 11, and CI builds and tests both. Building needs the .NET 11 SDK (see `global.json`). Running the `net10.0` tests also needs the .NET 10 runtime.
 
 Storage is an in-memory placeholder. EF Core and the per-layer `AGENTS.md` files are not added yet. Do not add EF Core, new projects, or another target framework unless the task explicitly asks for it.
 

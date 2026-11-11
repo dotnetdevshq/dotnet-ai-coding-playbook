@@ -34,8 +34,8 @@ This playbook treats that as an engineering problem, not a prompting problem. It
 | Repository setup and README | Done |
 | Root `AGENTS.md`, `SECURITY.md`, license, `.editorconfig` | Done |
 | Build guardrails and CI workflow | Done |
-| Clean Architecture sample solution (skeleton, .NET 10) | Done |
-| .NET 11 support | Planned, after its release |
+| Clean Architecture sample solution (skeleton) | Done |
+| .NET 10 and .NET 11 multi-targeting | Done |
 | Data access rules (EF Core) | Planned |
 | API, application and domain, and testing rules | Planned |
 | UI layer (optional variant) | Later |

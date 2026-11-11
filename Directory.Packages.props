@@ -4,9 +4,19 @@
     <ManagePackageVersionsCentrally>true</ManagePackageVersionsCentrally>
   </PropertyGroup>
 
-  <ItemGroup>
+  <!-- Packages that ship with .NET follow the target framework, so each framework gets its matching major version. -->
+  <ItemGroup Condition="'$(TargetFramework)' == 'net10.0'">
     <PackageVersion Include="Microsoft.AspNetCore.Mvc.Testing" Version="10.0.0" />
     <PackageVersion Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="10.0.0" />
+  </ItemGroup>
+
+  <ItemGroup Condition="'$(TargetFramework)' == 'net11.0'">
+    <PackageVersion Include="Microsoft.AspNetCore.Mvc.Testing" Version="11.0.0" />
+    <PackageVersion Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="11.0.0" />
+  </ItemGroup>
+
+  <!-- Packages that are the same for every target framework. -->
+  <ItemGroup>
     <PackageVersion Include="Microsoft.NET.Test.Sdk" Version="17.14.1" />
     <PackageVersion Include="xunit" Version="2.9.3" />
     <PackageVersion Include="xunit.runner.visualstudio" Version="3.1.4" />
