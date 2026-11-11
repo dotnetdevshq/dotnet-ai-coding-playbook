@@ -1,5 +1,6 @@
 using System.Net;
 using System.Net.Http.Json;
+using System.Text.Json;
 
 namespace Playbook.IntegrationTests;
 
@@ -45,6 +46,40 @@ public sealed class TodoEndpointsTests : IClassFixture<PlaybookApiFactory>
         using HttpResponseMessage response = await client.PostAsJsonAsync("/todos", new { title });
 
         Assert.Equal(HttpStatusCode.BadRequest, response.StatusCode);
+    }
+
+    [Fact]
+    public async Task PostReturnsTheLocationOfTheNewTodo()
+    {
+        using HttpClient client = _factory.CreateClient();
+
+        using HttpResponseMessage response = await client.PostAsJsonAsync("/todos", new { title = "Find me later" });
+
+        TodoResponse? created = await response.Content.ReadFromJsonAsync<TodoResponse>();
+        Assert.NotNull(created);
+        Assert.Equal($"/todos/{created.Id}", response.Headers.Location?.OriginalString);
+    }
+
+    [Fact]
+    public async Task PostWithATooLongTitleReturnsBadRequest()
+    {
+        using HttpClient client = _factory.CreateClient();
+
+        using HttpResponseMessage response = await client.PostAsJsonAsync("/todos", new { title = new string('a', 201) });
+
+        Assert.Equal(HttpStatusCode.BadRequest, response.StatusCode);
+    }
+
+    [Fact]
+    public async Task ValidationErrorsAreProblemDetailsKeyedByField()
+    {
+        using HttpClient client = _factory.CreateClient();
+
+        using HttpResponseMessage response = await client.PostAsJsonAsync("/todos", new { title = "" });
+
+        Assert.Equal("application/problem+json", response.Content.Headers.ContentType?.MediaType);
+        JsonElement problem = await response.Content.ReadFromJsonAsync<JsonElement>();
+        Assert.True(problem.GetProperty("errors").TryGetProperty("title", out _));
     }
 
     [Fact]
