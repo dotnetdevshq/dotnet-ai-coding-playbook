@@ -16,4 +16,9 @@
   <ItemGroup>
     <Using Include="Xunit" />
   </ItemGroup>
+
+  <!-- Convention tests that every test project runs against itself. -->
+  <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)Shared\TestConventionTests.cs" Link="Shared\TestConventionTests.cs" />
+  </ItemGroup>
 </Project>

@@ -47,7 +47,7 @@ Rules:
 - Endpoints stay thin: validate input, call the application layer, map the result. No business logic and no direct `DbContext` use in `Api`.
 - If a change seems to need a dependency that points outward, stop and say so instead of adding the reference.
 
-Layer-specific rules live in an `AGENTS.md` inside the project folder. When one exists, it applies in addition to this file. Each of the four projects under `src/` has one. There is none for the test projects yet.
+Layer-specific rules live in an `AGENTS.md` inside the project folder. When one exists, it applies in addition to this file. Each of the four projects under `src/` has one, and `tests/AGENTS.md` covers all test projects.
 
 ## Working rules
 
