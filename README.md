@@ -2,7 +2,7 @@
 
 Rules, guardrails, and a template that keep AI-written .NET code up to your standards.
 
-> **Status: early work in progress.** This repository was started in November 2026. The root rules, build guardrails, a solution skeleton, data access with EF Core, and the rules for the Infrastructure and API layers are in place. The rules for the other layers are still planned. See [Roadmap](#roadmap) for what exists today.
+> **Status: early work in progress.** This repository was started in November 2026. The root rules, build guardrails, a solution skeleton, data access with EF Core, and the rules for all four layers are in place. The testing rules are still planned. See [Roadmap](#roadmap) for what exists today.
 
 ## Why this exists
 
@@ -38,7 +38,8 @@ This playbook treats that as an engineering problem, not a prompting problem. It
 | .NET 10 and .NET 11 multi-targeting | Done |
 | Data access with EF Core (SQLite) and its rules in `src/Infrastructure/AGENTS.md` | Done |
 | API layer rules in `src/Api/AGENTS.md` | Done |
-| Application and domain, and testing rules | Planned |
+| Application and domain rules in `src/Application/AGENTS.md` and `src/Domain/AGENTS.md` | Done |
+| Testing rules | Planned |
 | UI layer (optional variant) | Later |
 
 A companion guide is planned for [dotnetdevs.io](https://dotnetdevs.io).
