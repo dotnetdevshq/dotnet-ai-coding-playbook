@@ -40,6 +40,13 @@ public sealed class LayerDependencyTests
     }
 
     [Fact]
+    public void ApiDoesNotUseDomain()
+    {
+        // The API talks to the application layer and returns its DTOs. It never handles entities.
+        AssertUsesNone(ApiAssembly, "Playbook.Domain");
+    }
+
+    [Fact]
     public void ApiDoesNotUseEntityFramework()
     {
         // The API may reference Infrastructure to register its services, but it must not query the database itself.
