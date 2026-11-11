@@ -12,7 +12,7 @@ Everything here is meant to be copied into other people's projects. Prefer simpl
 
 The solution skeleton exists: four projects under `src/`, three test projects under `tests/`, and a CI workflow. Every project targets both .NET 10 (LTS) and .NET 11, and CI builds and tests both. Building needs the .NET 11 SDK (see `global.json`). Running the `net10.0` tests also needs the .NET 10 runtime.
 
-Storage is an in-memory placeholder. EF Core and the per-layer `AGENTS.md` files are not added yet. Do not add EF Core, new projects, or another target framework unless the task explicitly asks for it.
+Storage is EF Core with SQLite, in `src/Infrastructure`. That project has its own `AGENTS.md` with the data access rules. The other layers do not have a per-layer `AGENTS.md` yet. Do not add new projects, another database provider, or another target framework unless the task explicitly asks for it.
 
 ## Commands
 
@@ -47,7 +47,7 @@ Rules:
 - Endpoints stay thin: validate input, call the application layer, map the result. No business logic and no direct `DbContext` use in `Api`.
 - If a change seems to need a dependency that points outward, stop and say so instead of adding the reference.
 
-Layer-specific rules will live in an `AGENTS.md` inside each project folder. When one exists, it applies in addition to this file.
+Layer-specific rules live in an `AGENTS.md` inside the project folder. When one exists, it applies in addition to this file. Today only `src/Infrastructure/AGENTS.md` exists.
 
 ## Working rules
 

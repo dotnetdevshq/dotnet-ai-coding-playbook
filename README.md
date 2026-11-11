@@ -2,7 +2,7 @@
 
 Rules, guardrails, and a template that keep AI-written .NET code up to your standards.
 
-> **Status: early work in progress.** This repository was started in November 2026. The root rules, build guardrails, and a solution skeleton are in place. Data access with EF Core and the per-layer rules are still planned. See [Roadmap](#roadmap) for what exists today.
+> **Status: early work in progress.** This repository was started in November 2026. The root rules, build guardrails, a solution skeleton, and data access with EF Core (with its rules) are in place. The rules for the other layers are still planned. See [Roadmap](#roadmap) for what exists today.
 
 ## Why this exists
 
@@ -36,7 +36,7 @@ This playbook treats that as an engineering problem, not a prompting problem. It
 | Build guardrails and CI workflow | Done |
 | Clean Architecture sample solution (skeleton) | Done |
 | .NET 10 and .NET 11 multi-targeting | Done |
-| Data access rules (EF Core) | Planned |
+| Data access with EF Core (SQLite) and its rules in `src/Infrastructure/AGENTS.md` | Done |
 | API, application and domain, and testing rules | Planned |
 | UI layer (optional variant) | Later |
 
