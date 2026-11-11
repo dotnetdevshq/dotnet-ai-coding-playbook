@@ -1,7 +1,18 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" />
+    <!-- Design-time only: needed by the dotnet ef tool to add migrations. It does not flow to other projects. -->
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" PrivateAssets="all" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\Application\Application.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <!-- Lets the integration tests exercise the internal repository and DbContext against a real database. -->
+    <InternalsVisibleTo Include="Playbook.IntegrationTests" />
   </ItemGroup>
 
 </Project>

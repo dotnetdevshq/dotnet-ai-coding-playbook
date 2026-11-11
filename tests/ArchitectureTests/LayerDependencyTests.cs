@@ -19,6 +19,7 @@ public sealed class LayerDependencyTests
     private static readonly Assembly DomainAssembly = typeof(TodoItem).Assembly;
     private static readonly Assembly ApplicationAssembly = typeof(TodoService).Assembly;
     private static readonly Assembly InfrastructureAssembly = typeof(InfrastructureServiceRegistration).Assembly;
+    private static readonly Assembly ApiAssembly = typeof(Program).Assembly;
 
     [Fact]
     public void DomainUsesNoOtherLayerAndNoFramework()
@@ -36,6 +37,13 @@ public sealed class LayerDependencyTests
     public void InfrastructureDoesNotUseApiOrAspNetCore()
     {
         AssertUsesNone(InfrastructureAssembly, "Playbook.Api", AspNetCore);
+    }
+
+    [Fact]
+    public void ApiDoesNotUseEntityFramework()
+    {
+        // The API may reference Infrastructure to register its services, but it must not query the database itself.
+        AssertUsesNone(ApiAssembly, EntityFramework);
     }
 
     private static void AssertUsesNone(Assembly assembly, params string[] forbiddenPrefixes)

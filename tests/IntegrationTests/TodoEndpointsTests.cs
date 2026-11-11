@@ -1,17 +1,16 @@
 using System.Net;
 using System.Net.Http.Json;
-using Microsoft.AspNetCore.Mvc.Testing;
 
 namespace Playbook.IntegrationTests;
 
 /// <summary>
-/// Runs the real API in memory and calls it over HTTP.
+/// Runs the real API in memory, with a real SQLite database, and calls it over HTTP.
 /// </summary>
-public sealed class TodoEndpointsTests : IClassFixture<WebApplicationFactory<Program>>
+public sealed class TodoEndpointsTests : IClassFixture<PlaybookApiFactory>
 {
-    private readonly WebApplicationFactory<Program> _factory;
+    private readonly PlaybookApiFactory _factory;
 
-    public TodoEndpointsTests(WebApplicationFactory<Program> factory)
+    public TodoEndpointsTests(PlaybookApiFactory factory)
     {
         _factory = factory;
     }
